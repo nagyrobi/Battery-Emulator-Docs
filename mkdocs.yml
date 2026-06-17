@@ -2,3 +2,5 @@ site_name: Battery Emulator
 site_url: https://nagyrobi.github.io/Battery-Emulator-Docs
 theme:
   name: material
+plugins:
+  - offline
