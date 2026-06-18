@@ -7,8 +7,6 @@ edit_uri: 'https://github.com/nagyrobi/Battery-Emulator-Docs/blob/master/docs/'
 docs_dir: docs
 theme:
   name: material
-  icon:
-    logo: 🔋
   language: 'en'
   palette:
     - media: "(prefers-color-scheme: light)"
