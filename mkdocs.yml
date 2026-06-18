@@ -7,7 +7,6 @@ edit_uri: 'https://github.com/nagyrobi/Battery-Emulator-Docs/blob/master/docs/'
 docs_dir: docs
 theme:
   name: material
-  logo: material/battery-check
   language: 'en'
   custom_dir: docs/overrides
   palette:

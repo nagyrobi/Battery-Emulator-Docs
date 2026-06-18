@@ -1,3 +1,4 @@
+use_index_title: true
 nav:
 #  - Home: index.md
 #  - Documentation: documentation
