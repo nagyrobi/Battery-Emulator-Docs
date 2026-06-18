@@ -34,7 +34,6 @@ theme:
 #    - navigation.top
     - content.action.edit
     - content.code.copy
-theme:
   icon:
     admonition:
       note: octicons/tag-16
