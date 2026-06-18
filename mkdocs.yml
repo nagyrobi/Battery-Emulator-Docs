@@ -28,7 +28,7 @@ theme:
 #    - navigation.tabs
 #    - navigation.tabs.sticky
 #    - navigation.top
-#    - navigation.tracking
+    - navigation.tracking
 #    - navigation.footer
     - content.action.edit
     - content.code.copy
