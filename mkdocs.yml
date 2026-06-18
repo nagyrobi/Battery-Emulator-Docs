@@ -41,8 +41,6 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: 'https://github.com/dalathegreat/Battery-Emulator'
-extra_css:
-  - 'assets/css/anchor-fix.css'
 plugins:
 #  - offline
   - search:
@@ -73,9 +71,4 @@ markdown_extensions:
   - def_list
   - attr_list
   - md_in_html
-nav:
-  - Home:
-    - News: index.md
-  - Help:
-    - Patreon: https://www.patreon.com/dala "target=_blank"
-  - Web Installer: "https://dalathegreat.github.io/BE-Web-Installer/"
+
