@@ -8,7 +8,7 @@ docs_dir: docs
 theme:
   name: material
   icon:
-    logo: :battery:
+    logo: 🔋
   language: 'en'
   palette:
     - media: "(prefers-color-scheme: light)"
