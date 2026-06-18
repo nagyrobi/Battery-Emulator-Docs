@@ -1,0 +1,96 @@
+> [!CAUTION]
+> Working with high voltage is dangerous. Always follow local laws and regulations regarding high voltage work. If you are unsure about the rules in your country, consult a licensed electrician for more information.
+
+## Read this first
+
+Preface, the entire Battery-Emulator project sets out to achieve safe re-use of EV batteries. By building your own battery, you will be taking larger risks. Cell balancing wire taps, shunts, busbar connections, BMS integration, temperature monitoring, fuses, contactors, interlocks, etc. all will have to be implemented by yourself instead of using a pre-made product. As with all things custom, there are higher risks of human error. This page covers emulating High Voltage protocols, so while most tinkerers might be familiar with 48V DIY batteries, building a 96S 400VDC battery is an entirely different beast that can be lethal. Take extra precaution when working on a custom DIY HV battery, you have been warned.
+
+> [!CAUTION]
+> If you are unsure of your technical knowhow, avoid building a high voltage battery from scratch
+
+## Custom DIY battery with RJXZS BMS
+The Battery-Emulator has support for the 4-192S RJXZS BMS. With this BMS you can construct your own high voltage battery, and connect the BMS via CAN to the Battery-Emulator. This allows you to use a DIY battery (instead of an EV battery) with any normal Battery-Emulator supported inverter.
+
+### Where do I get the hardware?
+- https://www.aliexpress.com/i/1005005915643384.html
+- contact [sales@rjxzstech.com](mailto:sales@rjxzstech.com)
+
+### Where do I get the User Manual?
+User Manual can be found here: 
+[4-192S BMS operation manual.pdf](https://github.com/user-attachments/files/19853501/4-192S.BMS.operation.manual.pdf)
+
+### How do I calculate how many cells I need?
+You need to see the voltage range of the inverter, and calculate based on the chemistry you intend to use. For instance, a Fronius Gen24 takes 160-531V on the battery input. Using the limits for NCM chemistry (3.0V empty, 4.2V full), this means the minimum viable battery configuration would be 160V empty (160V/3.0V=53S), and the largest battery configuration would be (531V/4.2V=126S). So a 53S at minimum, and a 126S config max.
+
+## Setting up the BMS
+You can download the latest official version from RJXZS at: https://www.rjxzstech.com/download/the-APP-of-192S-Ghost-BMS-for-android.html
+
+On some phones to run app you need to turn on GPS positioning and allow app to use that feature:
+
+
+![image](https://github.com/user-attachments/assets/f7a0390a-a263-4eae-a371-ba800ee1ffcd)
+
+
+Settings are configured on the RJXZS BMS via the TOPBMS smartphone app. The most important settings are capacity (AH), cells in series, low voltage cutoff, and charge end voltage.
+
+![image](https://github.com/user-attachments/assets/ceef8e37-ab23-4fbe-97ba-eeb79211d7a6)
+
+- Remember to calibrate AH. Without this, the SOC% will be 0 all the time. The best way is to charge battery to its maximum and set Battery used capacity in Top BMS APP to 0 Ah. 
+   - To figure out how many AH your battery holds, you can calculate it with ((kWh * 1000) / nominalV). For instance a 30kWh LEAF battery would be ((30 * 1000)/370V) = 81AH
+- It is recommended to activate function "Automatically Clear Capacity" - this will set SOC to 100% every time charge voltage limit is reached
+
+**Main settings description** [taken from RJXZS manual](https://github.com/user-attachments/files/19853501/4-192S.BMS.operation.manual.pdf)
+
+<img width="498" height="694" alt="image" src="https://github.com/user-attachments/assets/43dd8563-89b2-4cef-850d-1e85ac80ad77" />
+
+
+> [!CAUTION]
+> Failure to set correct voltage cutoff according to your battery chemistry can lead to catastrophic damage. For instance an Lifepo4 cell should charge max to 3.5V. Overcharging LFP cells to >4V will cause permanent damage and/or battery fire
+
+## Setting up the Battery-Emulator integration
+
+> [!IMPORTANT]
+> The RJXZS BMS runs at 250kbps CAN speed. Due to this it cannot be connected to same CAN bus as solar inverters. This BMS needs to be connected to the Native CAN (Built in CAN on LilyGo, CAN1 on Stark)
+
+Start by connecting the CAN port of the BMS, to the CAN port on the Battery-Emulator
+
+![image](https://github.com/user-attachments/assets/3c2e7fe3-aa99-430b-9100-2d871cf0c80d)
+
+- If you have a Modbus inverter, connect it to the RS485 port of the Battery-Emulator
+- If you have a CAN inverter, you need to connect it to a separate 500kbps CAN channel, since the BMS runs at 250kbps on the native CAN
+   - One option is to use [add on MCP2515](https://github.com/dalathegreat/Battery-Emulator/wiki/CAN-add%E2%80%90on-(MCP2515)) board
+   - Another options is to use [add on CAN-FD MCP2518](https://github.com/dalathegreat/Battery-Emulator/wiki/CAN%E2%80%90FD-add%E2%80%90on-(MCP2518FD)) board 
+   - Third option is to use [Stark CMR board](https://github.com/dalathegreat/Battery-Emulator/wiki/Hardware:-Stark-CMR)
+   - Fourth option is to use [Double LilyGo](https://github.com/dalathegreat/Battery-Emulator/wiki/Double-LilyGo) setup
+
+
+For this battery type, use the option called "RJXZS BMS, DIY battery" under the "Battery Protocol" setting
+
+<img width="664" height="345" alt="image" src="https://github.com/user-attachments/assets/0a1fe790-2efb-4d39-a0fe-c915f453b899" />
+
+Configure all the settings according to the specifications of the battery you have constructed, the general password to access settings is "0". CAN send ID and CAN receive ID should be 245 and 244 respectively, these settings are locked behind the password "770921".
+
+After uploading the code to the Battery-Emulator, you can check cellvoltages, SOC etc. via the [Webserver](https://github.com/dalathegreat/Battery-Emulator/wiki/Webserver-guide)
+
+> [!IMPORTANT]
+> During first startup, RJXZS will report faults, thats why first thing you need to do is clear all events in bluetooth app by holding CLR button for a few seconds:
+>
+>![image](https://github.com/user-attachments/assets/15fdf801-aa48-4a5a-978c-81be7e82733b)
+>
+>All events which are stored inside RJXZS BMS are marked very well in battery emulator Event List:
+>
+>![image](https://github.com/user-attachments/assets/466d0a01-0b92-4b4b-ba28-e9d3a8a7660e)
+
+
+Example of value monitoring, and cellvoltage monitoring of a 70S battery
+
+![image](https://github.com/user-attachments/assets/69f44221-e610-4cc5-8ba5-832129f95183)
+
+
+## Example integrations
+Feel free to add your own pictures here!
+
+![image](https://github.com/user-attachments/assets/f2a011f3-6571-4a51-9576-f583905c95aa)
+
+![image](https://github.com/user-attachments/assets/b8846aaf-9c25-4171-ba3b-1451a6a5ec7b)
+
