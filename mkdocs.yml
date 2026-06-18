@@ -75,3 +75,13 @@ markdown_extensions:
 #  - attr_list
 #  - md_in_html
 
+nav:
+  - Home:
+    - News: index.md
+  - Help:
+    - Patreon: https://www.patreon.com/dala "target=_blank"
+  - Documentation: '/documentation/'
+  - Batteries: '/supported-batteries/'
+  - Inverters: '/supported-inverters/'
+  - Hardware: '/supported-emulator-hardware/'
+  - Web Installer: "https://dalathegreat.github.io/BE-Web-Installer/"
