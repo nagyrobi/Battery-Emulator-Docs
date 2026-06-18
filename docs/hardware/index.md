@@ -1,0 +1,1 @@
+# Supported Emulator Hardware
