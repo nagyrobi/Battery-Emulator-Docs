@@ -12,13 +12,13 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue
-      accent: indigo
+      accent: deep orange
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
+      primary: green
       accent: deep purple
       toggle:
         icon: material/toggle-switch
@@ -32,7 +32,7 @@ theme:
     - content.action.edit
     - content.code.copy
   font:
-    text: Barlow
+#    text: Barlow
     code: Roboto Mono
 extra:
   social:
