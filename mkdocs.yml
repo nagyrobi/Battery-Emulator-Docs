@@ -7,8 +7,7 @@ edit_uri: 'https://github.com/nagyrobi/Battery-Emulator-Docs/blob/master/docs/'
 docs_dir: docs
 theme:
   name: material
-  logo: 
-    icon: material/battery-check
+  logo: material/battery-check
   language: 'en'
   custom_dir: docs/overrides
   palette:
@@ -56,6 +55,7 @@ plugins:
   - search:
       lang:
         - en
+  - awesome-nav
 #  - minify:
 #      minify_html: true
 markdown_extensions:
@@ -74,11 +74,3 @@ markdown_extensions:
 #  - def_list
 #  - attr_list
 #  - md_in_html
-
-nav:
-  - Home: index.md
-  - Documentation: documentation
-  - Batteries: supported-batteries
-  - Inverters: supported-inverters
-  - Hardware: supported-emulator-hardware
-  - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
