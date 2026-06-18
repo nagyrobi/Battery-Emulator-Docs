@@ -1,8 +1,7 @@
 ---
 title: Battery Emulator Documentation
 description: This revolutionary software enables EV battery packs to be easily reused for stationary storage in combination with solar inverters 
-hide:
-  - toc
+
 ---
 
 # Battery-Emulator ⚡🔋
