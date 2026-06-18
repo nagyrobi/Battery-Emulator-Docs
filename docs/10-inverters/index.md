@@ -1,5 +1,5 @@
 ---
-title: Supported inverters list
+title: Supported inverters
 hide:
   - toc
 ---

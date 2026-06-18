@@ -1,5 +1,5 @@
 ---
-title: Battery-Emulator
+title: Welcome
 description: This revolutionary software enables EV battery packs to be easily reused for stationary storage in combination with solar inverters 
 hide:
   - navigation

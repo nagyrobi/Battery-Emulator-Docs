@@ -1,5 +1,5 @@
 ---
-title: Supported Emulator Hardware
+title: Emulator Hardware
 hide:
   - toc
 ---

@@ -1,10 +1,10 @@
 ---
-title: Documentation
+title: Setup
 hide:
   - toc
 ---
 
-# Documentation
+# Setup
 
 ## How do I get started?
 - Pick a [supported solar inverter](https://github.com/dalathegreat/Battery-Emulator/wiki#supported-inverters-list) (solar panels optional) 🌞 

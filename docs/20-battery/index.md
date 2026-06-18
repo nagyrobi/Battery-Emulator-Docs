@@ -1,5 +1,5 @@
 ---
-title: Supported batteries list
+title: Supported batteries
 hide:
   - toc
 ---
