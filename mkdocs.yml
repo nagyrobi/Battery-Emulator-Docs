@@ -77,8 +77,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Documentation: '/documentation/index.md'
-  - Batteries: '/supported-batteries/index.md'
-  - Inverters: '/supported-inverters/index.md'
-  - Hardware: '/supported-emulator-hardware/index.md'
+  - Documentation: documentation
+  - Batteries: supported-batteries
+  - Inverters: supported-inverters
+  - Hardware: supported-emulator-hardware
   - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
