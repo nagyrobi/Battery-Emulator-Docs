@@ -1,0 +1,68 @@
+## Hardware basics
+The LilyGo T-CAN485 is what the Battery-Emulator originally started development with. It is a very cheap microcontroller, that runs the entire project easily. It has 1x CAN, 1x RS485, and GPIO pins for expansion.
+
+> [!TIP]
+> Only get this board if you need Modbus/RS485. For CAN components, the new [T-2CAN](https://github.com/dalathegreat/Battery-Emulator/wiki/Hardware:-LilyGo-T%E2%80%902CAN) board is easier for beginners.
+
+<img alt="image" src="https://github.com/user-attachments/assets/2c40dcc5-b2f3-4f32-80e9-8fa4c88c830a" />
+
+> [!Warning]
+> This board has limited memory. Starting from 2027, it might not get new integrations added to it. All other hardware choices are better suited for those seeking new feature development and new integrations
+
+## Purchase link
+The hardware can be bought via sites like [AliExpress](https://www.aliexpress.com/item/1005003624034092.html)
+
+## Hardware info
+The hardware has more details on LilyGo's Github page
+https://github.com/Xinyuan-LilyGO/T-CAN485
+
+## Expanding the board
+The board comes with 1x CAN channel, and 1x RS485 channel. Some integrations need more than 1 channel, in these cases the LilyGo can be extended with add-on CAN channels:
+
+- [CAN add‐on](https://github.com/dalathegreat/Battery-Emulator/wiki/CAN-add%E2%80%90on-(MCP2515))
+- [CAN-FD add on](https://github.com/dalathegreat/Battery-Emulator/wiki/CAN%E2%80%90FD-add%E2%80%90on-(MCP2518FD))
+
+Example, LilyGo + MCP2515 board
+
+<img alt="image" src="https://github.com/user-attachments/assets/ef588bf5-1317-4ce5-bbad-8a204b7565c7" />
+
+### Expanding the board with more IO pins
+The SD card slot can be used to gain more pins. This can be useful on setups that need lots of inputs/outputs, for instance add-on CAN + contactor control and/or enable line inputs. To use the SD card slot, you will need a "SD Card breakout board"
+
+<img alt="image" src="https://github.com/user-attachments/assets/37a66543-d2c4-496e-bb81-4c2de2bb13af" />
+
+By installing one of these breakout boards, you can then remap the src/devboard/hal/hw_lilygo.h file to suit your newfound pins
+
+- GPIO_NUM_2 corresponds to DAT0  (SD_MISO)
+- GPIO_NUM_13 corresponds to DAT3 (SD_CS)
+- GPIO_NUM_14 corresponds to CLK  (SD_SCLK)
+- GPIO_NUM_15 corresponds to CMD  (SD_MOSI)
+
+Completed product:
+
+<img alt="image" src="https://github.com/user-attachments/assets/2348977a-35b3-4e4f-bdcd-f4e14eabb14d" />
+
+### Expanding the board further
+To make the board even more professional (DIN mounting solution with CANFD and contactor drivers built in), you can get the [LilyGo T‐CAN485 & CAN‐FD Motherboard](https://github.com/dalathegreat/Battery-Emulator/wiki/LilyGo-T%E2%80%90CAN485-&-CAN%E2%80%90FD-Motherboard)
+
+<img alt="image" src="https://github.com/user-attachments/assets/7c28b695-1856-416e-b193-68efe09de966" />
+
+
+## Enhancements notes, things to know
+The chip has the tendacy to run quite hot. Some people book good results by adding a RAM or Raspberry Pi heatsinks on the chip, reducint the heat.
+Above 80 degrees the BE screen turns yellow as a warning, and above 95 degrees damage is possible.
+Take this into consideration when building enclosures for it.
+If the situation is crifical (hot and direct sun), you can use a [Peltier element with fan](https://s.click.aliexpress.com/e/_c4LFUPAt).
+
+There are several enclosure designs that can be 3D printed, so it can be mounted on a DIN rail.
+https://www.thingiverse.com/thing:6788996
+https://www.thingiverse.com/thing:7029497
+
+The lilygo has an internal voltage regulator, and input is rated at 5-12 volts. 
+Not all lilygos actually work on 5V. A higher input is needed often. 
+Some report issues above 12 volts, other run boards fine at 14.4 volts. It is not yet determined what causes these variations.
+
+If the controller is not outside (under 0C temperature), it is recommended to use a PSU like [DC1036P](https://www.aliexpress.com/w/wholesale-DC1036P.html) or Well DC-HALE36-WL (36W).
+If it is outside, in the cold, use a 12V source like [**HDR-60-12**](https://www.meanwell.com/Upload/PDF/HDR-60/HDR-60-SPEC.PDF) and a 12V AGM battery.
+
+![HDR-60-12](https://github.com/user-attachments/assets/bdd4f55c-c7f7-41de-b0db-974130046eda)

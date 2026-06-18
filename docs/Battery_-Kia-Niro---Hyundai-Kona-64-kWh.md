@@ -1,0 +1,239 @@
+> [!CAUTION]
+> Working with high voltage is dangerous. Always follow local laws and regulations regarding high voltage work. If you are unsure about the rules in your country, consult a licensed electrician for more information.
+
+# Kia e-Niro 64 kWh / Hyundai Kona Electric 64 kWh
+
+## A word of caution about battery fires 🔥
+> [!CAUTION]
+> The batteries manufactured by LG Chem were recalled due to fire risk. If you are using a battery from a vehicle that did not get the recall, there is a higher risk to re-use these 64kWh batteries. The recall started in 2021, so if you are using a battery from a vehicle that was crashed before 2021, there is a high probability you have an pre-recall battery. **You have been warned!**
+
+What are the affected vehicles? The subject vehicles include:
+
+• Approximately 4,694 model year 2019-2020 Hyundai Kona Electric vehicles produced from August 28, 2018 through March 2, 2020. 
+
+• Approximately 2 model year 2020 Hyundai Ioniq Electric vehicles produced from November 8, 2019 through November 11, 2019.
+   
+This was done under program Recall 200 - https://static.nhtsa.gov/odi/rcl/2021/RCMN-21V127-9103.pdf
+
+So can it be that the battery donor car is from 2020 or 2021 but has received the new battery, good to check then the battery label production date.
+
+## Specifications
+* 64kWh, 98s, 352v nominal, 180Ah (Approx size 147cm w x 197cm l x 33cm) ~450kg
+   * Note: 64kWh, 96S 358V, 68kWh net ( **37501-AO050** ) 2022+ uses CAN-FD! See part numbers for more info
+* 39kWh, 90s, 324v nominal, 120Ah (Approx size 147cm w x 197cm l x 33cm) ~350kg
+
+## Part numbers for batteries
+Here is a list of Kia / Hyundai stickers. The Number K is used for Kona, and Number Q is used for Niro. ✅ means that someone has succesfully used the pack with the Battery-Emulator
+
+- 37501 AO050 is Hyundai Kona / Kia e-niro 64kWh ✅ This battery uses **CAN-FD**, Use `Kia 64kWh **FD** Battery` option in software!
+<img alt="image" src="https://github.com/user-attachments/assets/c3a891aa-b0f1-494e-9b71-dde90da6b2dc" />
+
+- 37501 GI050 is Hyundai Ioniq 5 72kWh (For this battery see [EGMP](https://github.com/dalathegreat/Battery-Emulator/wiki/Battery:-Hyundai-E%E2%80%90GMP-platform-(58.2-%E2%80%90-77.4-kWh)))
+- 37501 CV050 is Kia EV6 78kWh (For this battery see [EGMP](https://github.com/dalathegreat/Battery-Emulator/wiki/Battery:-Hyundai-E%E2%80%90GMP-platform-(58.2-%E2%80%90-77.4-kWh)))
+- 37510 E4050 is [Kia Soul 27kWh](https://github.com/dalathegreat/Battery-Emulator/wiki/Battery:-Kia-Soul-27kWh) ❌ (not supported,pinout unclear)
+
+All Ioniq 28kWh packs use the following options
+<img alt="image" src="https://github.com/user-attachments/assets/13415e8b-cb18-436e-9a41-f0ca83418433" />
+
+- 37501 G7200 is Hyundai Ioniq 28kWh
+- 37501 G7250 is Hyundai Ioniq 28kWh
+
+All the following options use
+
+<img alt="image" src="https://github.com/user-attachments/assets/0550d1d1-5411-4ffd-ba2c-5c7425ab7f7d" />
+
+- 37501 DD150 is Hyundai Kona 64kWh ✅ 
+- 37501 DD151 is Hyundai Kona 64kWh ✅ 
+- 37501 DD250 is Hyundai Kona 40kWh 
+- 37501 K4003 is Hyundai Kona 64kWh 
+- 37501 K4050 is Hyundai Kona 64kWh? (reports itself as 40kWh) ✅ 
+- 37501 K4050AS is Hyundai Kona 64kWh
+- 37501 K4054 is Hyundai Kona 64kWh ✅ (does not require 5V supply) 
+- 375A0 K4403 is Hyundai Kona 40kWh ✅
+- 37501 K4454 is Hyundai Kona 40kWh ✅ 
+- 37501 G7650 is Hyundai Ioniq 40kWh
+- 37501 Q4000 is Kia Niro 64kWh ✅ 
+- 37501 Q4052 is Kia eSoul 64kWh ✅ 
+- 37501 Q4050 is Kia Niro 64kWh ✅ 
+- 37501 Q4053 is Kia eSoul/Niro 64kWh ✅ 
+- 37501 Q4151 is Kia Niro 64kWh ✅ 
+- 37501 Q4452 is Kia Niro 64kWh
+
+Remark;
+It is possible the BMS in the battery needs a 12v powercycle for 10 ~ 20 sec , after that or at the same time boot the Lilly and contractors are closed and HIGH VOLTAGE !! is active on the battery pins.
+
+This also applies when a emergency knob/button is installed in the interlock lus. when lus is interupted the whole battery systems needs a 12v powercycle to be active again.
+
+## Part numbers
+Incase your battery is missing some wires/disconnect switches, here are the OEM part numbers and purchase links. Do note that it might be cheaper to source from your local scrapyard!
+|  Product |  Purchase Link |
+| :--------: | :---------: |
+| Service disconnect switch E437586000 |  [Ebay](https://www.ebay.co.uk/sch/i.html?_from=R40&_trksid=p2332490.m570.l1313&_nkw=E437586000&_sacat=0)   |
+| HV cable, 91662-K4500 CAN-FD, K4000 or K4100 (see below) |  x  |
+| HV connector, Yura 110WP 2F, 18790 11883 |  KIA dealer, 11€ (Only has interlock, no HV pins)  |
+| Low voltage connector KET MG656922-5 (requires [C025](https://m.alibaba.com/x/AxdkCn?ck=pdp) and [C060](https://m.alibaba.com/x/AxdkCS?ck=pdp) pins) |  [Alibaba](https://m.alibaba.com/x/AxdkBM?ck=pdp)  |
+
+![image](https://github.com/user-attachments/assets/b61ec359-75c5-4edb-b241-133ff86c50be)
+
+(Optional for contactor control inside battery, by adding additional pins to unused positions in battery side low voltage connector (MG646089): 2pcs KET ST741378-3 | 2pcs DJ7019-6.3-21 | 4pcs KET ST741376-3 | 2pcs KET MG651026)
+
+
+## Wiring info
+
+⚠️ The CAN communication has no error checking. This means it is prone to corruption if it sits close to a high voltage line. Use shielded twisted pair cables for CAN-H and CAN-L , and connect the shield to protective earth in one end of the circuit. 
+
+Attached below are pictures of the BMS pinouts. Connect the pins to the LilyGo and 12V supply like this:
+
+* Pin 1/2 to 12V
+* Pin 10 to LilyGo CAN - H (connect resistor 120 Ohm across 10 CAN - H and 11 CAN - L)
+* Pin 11 to LilyGo CAN - L
+* Pin 12 to 12V (Ignition)
+* Pin 3 and 14 connect together (interlock loop)
+* Pin 33 to 12V GND
+* Place 12k resistor between Pin9  and Pin31
+* Place 12k resistor between Pin8  and Pin30
+* Place 12k resistor between Pin27 and Pin28
+
+![bild](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/93bcaec2-ae2d-4070-94a3-f604ddbdc88d)
+
+Pinout as viewed from the outside of the pack (note; photo/drawing is upside down in regards to the battery pack!)
+
+![Kona LV Connector](https://github.com/dalathegreat/Battery-Emulator/assets/122843690/7ae0dab1-7a2a-4441-b9c5-fdef65d17c75)
+
+Note: PIN side (pack) layout. Not female connector side.
+
+![pinout 2023-11-30 222912](https://github.com/dalathegreat/BYD-Battery-Emulator-For-Gen24/assets/91983073/bd8929a8-448d-4cb5-a705-e6927002e58b)
+
+![bild](https://github.com/dalathegreat/BYD-Battery-Emulator-For-Gen24/assets/26695010/75923b9d-3a9f-4e5a-837e-8db2b93e1cbb)
+
+![batt-bms-connector](https://github.com/dalathegreat/Battery-Emulator/assets/32966723/3304ac08-f65f-432f-a53b-ef11828f8fc9)
+
+![bms-conn-wiring](https://github.com/dalathegreat/Battery-Emulator/assets/32966723/02aa8813-6e63-4eb5-892a-3e3a943a6ea6)
+
+![Schematic](https://github.com/dalathegreat/Battery-Emulator/assets/161759879/9ec8213f-ee43-41c5-ac3b-c0546f7a7216)
+
+## HighVoltage Wiring
+
+Overview of battery, cooling ports, low voltage connector, HVDC connectors
+
+<img alt="image" src="https://github.com/user-attachments/assets/1bc23cc4-e7e2-4e84-be17-0f821d0c6e68" />
+
+
+see picture for positive ( red ) and negative ( black ).
+
+![HV-pos-neg](https://github.com/dalathegreat/Battery-Emulator/assets/32966723/0de40916-e188-4b77-b3ce-c195e672c912)
+
+![Hv cable](https://github.com/dalathegreat/Battery-Emulator/assets/161759879/4a3760ff-4479-41d2-9ad8-cf2f58985cdb)
+
+[Battery specs.pdf](https://github.com/dalathegreat/Battery-Emulator/files/15015806/Battery.specs.pdf)
+
+#### Notes on type of HV cable
+39kwh (2022) was with metal silver HV socket (looks like early 39/64 packs), 64kwh pack was 2020 with orange plastic HV socket. And these HV sockets looks same but they are mechanically different. For easiest way, try to get the HV cable from the same vehicle that you are getting the battery from!
+
+Silver one needs HV cable p/n 91662K4000 (Picture below)
+Orange one needs HV cable p/n 91662K4100
+
+<img alt="image" src="https://github.com/user-attachments/assets/52c55356-db0a-4b67-aba7-0debbba0a857" />
+
+The two cables side by side 
+
+<img alt="image" src="https://github.com/user-attachments/assets/455b6f77-dc47-4d82-8502-0302e3c0397e" />
+
+
+## HVIL
+The battery packs has interlock monitoring on all high voltage connections. To get the contactors to engage, the battery needs to see that all plugs have been seated. If you dont have the original plugs, these are the HVIL connectors that need to be connected together to make the battery think the connectors are seated:
+
+Low voltage side: Pin 3 and 14 must be connected on data plug
+
+These two pins on the high voltage plug:
+
+![image](https://github.com/user-attachments/assets/52da5cce-7783-4ed8-acff-d81cfd9f021b)
+
+Two pins on the heater plug must be joined:
+
+![image](https://github.com/user-attachments/assets/cf2117b4-67db-495c-8c0f-521c0f7d6f65)
+
+If the service disconnect switch is missing, these two small pins must be shorted together.
+
+![image](https://github.com/user-attachments/assets/4fe24689-10fc-4920-9b28-b304b5a6ac28)
+
+Plus, the HV side must be connected together (diagram missing for running without service disconnect plug). Due to this, it is recommended to get the OEM service disconnect plug before continuing.
+
+## STL files for unused battery connections
+
+There are STL files available to 3D print covers for the unused battery connectors.
+
+
+
+## Special notes on 37501-AO050 battery
+There is a 2022+ Hyundai Kona or Kia e-niro battery that uses CAN-FD, that comes with a AO050 part number sticker. It is CATL made, it consist in 24 modules(2.835 kwh) x 4 cells(3.7v), configured 96s1p(358v in total) 64.8kwh(68.4 in total)
+
+This battery has the part number 37501-AO050, and this battery requires a CAN-FD hardware interface. Easiest to get a [Stark CMR](https://github.com/dalathegreat/Battery-Emulator/wiki/Hardware:-Stark-CMR), but you can also add a [CANFD addon interface](https://github.com/dalathegreat/Battery-Emulator/wiki/CAN%E2%80%90FD-add%E2%80%90on-(MCP2518FD)). To use this battery, enable the `Kia 64kWh FD battery` option in the software.
+
+> [!IMPORTANT]
+> The contactor control for these FD batteries are not working, they open after a few seconds. To get around this, you need to force the contactors closed with 12V/GND. This can be automated with GPIO Controlled contactors
+
+![image](https://github.com/user-attachments/assets/5e20fa9b-7586-4032-9b2d-74c1ffafcb0a)
+
+### Manual contactor control on the 37501-AO050 FD battery
+To setup manual contactor control, open the battery lid, and locate the contactor assembly box
+
+<img alt="image" src="https://github.com/user-attachments/assets/d0c65aa0-4589-466e-b94d-2bbfd16a9cf5" />
+
+You can connect your own contactor control wiring directly to the white plug.
+
+<img alt="image" src="https://github.com/user-attachments/assets/263549a8-1869-4c75-ab1f-535902cbd063" />
+
+To get the contactor control wires out of the battery (and into the Battery-Emulator GPIO), you can use the unused pins on the low voltage connector:
+
+<img alt="image" src="https://github.com/user-attachments/assets/edd6e0c5-ff15-41a8-9429-40443769e940" />
+
+For controlling the contactors, it is enough to take out 3 wires outside the battery (precharge+, contPos+, contNeg+), the negative side is common with the BMS power supply.
+
+- white for contactor control positive
+- brown/orange for contactor control negative
+- yellow/orange for pre-charging
+
+Connect these three wires to the GPIO via relay/SSR.
+
+## Troubleshooting 
+
+If you see Battery Voltage being reported as 6553.5V, it means that the battery is having internal issues.
+
+- Check if all cells are visible on the Cellmonitor page
+   - If all cells are not visible, you have a blown fuse on one of the balancing lines
+   - Another user reported corrosion on one of the balance lead plugs
+   - Whatever the case, opening the battery and investigating is required if cellvoltages are missing
+
+## Notes on waterdamage :droplet: 
+
+> [!WARNING]
+> These batteries are not waterproof. Water can easily enter thru the service disconnect switch. Store and operate in a dry area!
+
+Attached pictures from packs that did not detect all cells. Root cause was water damage, causing fuses and PCB traces to blow up. Placing batteries vertically can make water sloosh around and short out. You have been warned!
+
+![image](https://github.com/user-attachments/assets/1d0cb45a-1fb2-4ee5-b10d-220f4cc9f3ff)
+
+## Explanation of More Battery Info page
+
+More battery info:
+Cells: 98S						= Total amount of cells of battery build
+12V voltage: 11.9					= State of 12V battery input, actual value (minimum 12V!)
+Waterleakage: 160					= Don’t know
+Temperature, water inlet: 17				= Temperature on inlet side of water cooling.
+Temperature, power relay: 26				= Temperature of power relays of battery.
+Batterymanagement mode: 1				= Don’t know.
+BMS ignition: 9						= Don’t know.
+Battery relay: 135					= Don’t know.
+
+## Internal schematics of the Battery ( 37501-AO050  version ) 
+[technical-schematics-kia-64kwh-SG2-spanish.pdf](https://github.com/user-attachments/files/26716116/technical-schematics-kia-64kwh-SG2-spanish.pdf)
+
+## Credits
+Here are the sources used
+[Kona.64.kWh.contactors.log.files.zip](https://github.com/dalathegreat/BYD-Battery-Emulator-For-Gen24/files/13322609/Kona.64.kWh.contactors.log.files.zip)
+
+* https://docs.google.com/spreadsheets/d/1dbOT9I-Aj7lU7yCiJDpXERjYRVOL_M1Tm2QFgmyYt4Y/htmlview?fbclid=IwAR3HZMGhDfGsOdJrbMfRUDkS8c-25cSwnZcwzIewC10mJ1gy6hf719BUBNM#
+* https://docs.google.com/spreadsheets/d/1-9jZafV9eZeBUnPQo7qQHbX2-_4qZfWfRVpidoF1owA/edit#gid=660740603
+Massive thanks to Lubos, Tyrel Haveman, goev1390, Peter Lord, Projectgus, JejuSoul, Heikki Jaakkola
+[technical-schematics-kia-64kwh-SG2-spanish.pdf](https://github.com/user-attachments/files/26715929/technical-schematics-kia-64kwh-SG2-spanish.pdf)

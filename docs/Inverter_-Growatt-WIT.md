@@ -1,0 +1,18 @@
+> [!CAUTION]
+> Working with high voltage is dangerous. Always follow local laws and regulations regarding high voltage work. If you are unsure about the rules in your country, consult a licensed electrician for more information.
+
+## Compatible Growatt WIT inverters
+Note that the WIT inverters use a separate protocol (GROWATT_WIT) compared to the [smaller Growatt HV inverters](https://github.com/dalathegreat/Battery-Emulator/wiki/Inverter:-Growatt-HV)
+* WIT 50-100K-HU/AU
+
+## Inverter protocol specification
+Here is the inverter CAN definitions:
+
+[GROWATT BATTERY BMS CAN COMMUNICATION PROTOCOL V1.1 (EXTERNAL)-1.pdf](https://github.com/user-attachments/files/21463500/GROWATT.BATTERY.BMS.CAN.COMMUNICATION.PROTOCOL.V1.1.EXTERNAL.-1.pdf)
+
+## Which protocol to use
+For this inverter type, use the option called "Growatt WIT compatible battery via CAN" under the "Inverter Protocol" setting
+
+<img width="490" height="63" alt="image" src="https://github.com/user-attachments/assets/86a278cc-986b-4696-a99f-9cd3573023bb" />
+
+
