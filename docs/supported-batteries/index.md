@@ -1,3 +1,9 @@
+---
+title: Supported batteries list
+hide:
+  - toc
+---
+
 # Supported batteries list
 
 Be sure to checkout the [installation guidelines](https://github.com/dalathegreat/Battery-Emulator/wiki/Installation-guidelines) section for how to install your battery. Amount of stars ⭐ signal how mature and stable the integration is.

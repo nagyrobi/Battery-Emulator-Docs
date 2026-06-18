@@ -1,3 +1,9 @@
+---
+title: Documentation
+hide:
+  - toc
+---
+
 # Documentation
 
 ## How do I get started?
