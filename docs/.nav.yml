@@ -1,8 +1,8 @@
 nav:
-  - Home: index.md
-  - Documentation: documentation
-  - Inverters: supported-inverters
-  - Batteries: supported-batteries
-  - Hardware: supported-emulator-hardware
+#  - Home: index.md
+#  - Documentation: documentation
+#  - Inverters: supported-inverters
+#  - Batteries: supported-batteries
+#  - Hardware: supported-emulator-hardware
   - "*"
   - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
