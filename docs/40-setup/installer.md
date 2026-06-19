@@ -1,5 +1,5 @@
 ---
-title: Installer
+title: Web Installer
 hide:
   - toc
 ---

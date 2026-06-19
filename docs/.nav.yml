@@ -1,4 +1,4 @@
 use_index_title: true
 nav:
   - "*"
-  - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
+#  - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
