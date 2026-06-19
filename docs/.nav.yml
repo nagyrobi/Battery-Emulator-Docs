@@ -1,4 +1,6 @@
 use_index_title: true
+ignore:
+  - index.md
 nav:
   - "*"
   - Web Installer: https://dalathegreat.github.io/BE-Web-Installer/ "target=_blank"
