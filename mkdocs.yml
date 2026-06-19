@@ -27,11 +27,11 @@ theme:
   features:
     - navigation.instant
     - navigation.instant.progress
-    - navigation.tracking
+#    - navigation.tracking
     - navigation.expand
     - navigation.tabs
     - navigation.tabs.sticky
-#    - navigation.top
+    - navigation.top
     - content.action.edit
     - content.code.copy
   icon:
