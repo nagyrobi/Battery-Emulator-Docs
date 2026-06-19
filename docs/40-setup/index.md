@@ -1,5 +1,5 @@
 ---
-title: Setup
+title: Setup & Docs
 hide:
   - toc
 ---
