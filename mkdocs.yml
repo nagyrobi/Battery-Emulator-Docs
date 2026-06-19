@@ -8,6 +8,7 @@ docs_dir: docs
 theme:
   name: material
   logo: assets/be.svg
+  favicon: assets/be.ico
   language: 'en'
   custom_dir: docs/overrides
   palette:
