@@ -1,3 +1,7 @@
+---
+title: New battery integration
+---
+
 # Introduction
 
 This page describes the values that are used in the battery emulation SW. The values can come

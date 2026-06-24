@@ -10,3 +10,4 @@ hide:
     allow="serial"
   ></iframe>
 </div>
+[Open installer in new window](https://dalathegreat.github.io/BE-Web-Installer/)

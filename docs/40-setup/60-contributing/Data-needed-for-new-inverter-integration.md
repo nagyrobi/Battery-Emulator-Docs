@@ -1,3 +1,7 @@
+---
+title: New inverter integration
+---
+
 # Introduction
 This page describes the values needed for an inverter integration. If you want to integrate a new inverter type , this page will help you figure out what you need to be able to extract from the battery via CAN/Modbus logs.
 
