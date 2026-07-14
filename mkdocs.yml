@@ -84,6 +84,6 @@ plugins:
   - awesome-nav
   - redirects:
       redirect_maps:
-          'bmsreset.md': '40-setup/10-hardware/Periodic-BMS-reset.md'
+          'bmsreset.md': '40-setup/10-hardware/Periodic-BMS-reset.md#taking-it-into-use'
 #          'old/file.md': 'new/file.md'
 #          'some_file.md': 'http://external.url.com/foobar'
