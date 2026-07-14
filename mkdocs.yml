@@ -51,19 +51,6 @@ extra:
       link: 'https://www.patreon.com/dala'
     - icon: fontawesome/brands/github
       link: 'https://github.com/dalathegreat/Battery-Emulator'
-plugins:
-#  - offline
-  - search:
-      lang:
-        - en
-  - awesome-nav
-  - redirects:
-      redirect_maps:
-          'bmsreset': '40-setup/10-hardware/Periodic-BMS-reset.md'
-#          'old/file.md': 'new/file.md'
-#          'some_file.md': 'http://external.url.com/foobar'
-#  - minify:
-#      minify_html: true
 markdown_extensions:
   - admonition
   - toc:
@@ -87,3 +74,16 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+plugins:
+#  - minify:
+#      minify_html: true
+#  - offline
+  - search:
+      lang:
+        - en
+  - awesome-nav
+  - redirects:
+      redirect_maps:
+          'bmsreset': '/40-setup/10-hardware/Periodic-BMS-reset.md'
+#          'old/file.md': 'new/file.md'
+#          'some_file.md': 'http://external.url.com/foobar'
