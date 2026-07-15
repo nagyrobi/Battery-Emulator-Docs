@@ -5,10 +5,11 @@
 
 ## Physical size
 The Leaf battery packs (24/30/40kWh) are all the same physical size. The 62kWh battery however is 40mm taller.
-- 24kWh = 277kg (601pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 30kWh = 294kg (648pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 40kWh = 303kg (668pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 62kWh = 410kg (903pounds) 1547.0 (L) × 1188.0 (W) × 304.0 (H) mm
+
+- 24kWh (2011–2012, ZE0) = 277kg (601pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 30kWh (2013–2017, AZE0) = 294kg (648pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 40kWh (2018–2025, ZE1) = 303kg (668pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 62kWh (2018–2025, ZE1) = 410kg (903pounds) 1547.0 (L) × 1188.0 (W) × 304.0 (H) mm
 
 ![Leaf 24/30/40kWh pack](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/4af680d7-5736-4249-9fd1-ff47b38b3532)
 
@@ -181,7 +182,7 @@ The 2016-2017 30kWh LEAF battery had a software bug in the BMS that caused the a
 Performing this clear can restore a few kWh of usable energy back. 
 
 > [!IMPORTANT]
-> The degradation reset only works on 2011-2017 batteries. Performing it on 2018+ 40/62kWh packs will have a negative effect, since it will restore the battery data too low. So only perform this reset on 24/30kWh packs!
+> The degradation reset only works on 2011-2017 batteries. Performing it on 2018-2025 40/62kWh packs will have a negative effect, since it will restore the battery data too low. So only perform this reset on 24/30kWh packs!
 
 ![image](https://github.com/user-attachments/assets/2fbe8098-7aae-4242-aa07-dd39160f8f02)
 
