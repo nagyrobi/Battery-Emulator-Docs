@@ -6,10 +6,10 @@
 ## Physical size
 The Leaf battery packs (24/30/40kWh) are all the same physical size. The 62kWh battery however is 40mm taller.
 
-- 24kWh (2011–2012, ZE0) = 277kg (601pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 30kWh (2013–2017, AZE0) = 294kg (648pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 40kWh (2018–2025, ZE1) = 303kg (668pounds) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
-- 62kWh (2018–2025, ZE1) = 410kg (903pounds) 1547.0 (L) × 1188.0 (W) × 304.0 (H) mm
+- 24kWh (2011–2012, ZE0) = 277kg (601lb) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 30kWh (2013–2017, AZE0) = 294kg (648lb) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 40kWh (2018–2025, ZE1) = 303kg (668lb) 1547.0 (L) × 1188.0 (W) × 264.0 (H) mm
+- 62kWh (2018–2025, ZE1) = 410kg (903lb) 1547.0 (L) × 1188.0 (W) × 304.0 (H) mm
 
 ![Leaf 24/30/40kWh pack](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/4af680d7-5736-4249-9fd1-ff47b38b3532)
 
