@@ -22,8 +22,8 @@ For this battery type, use the option called "Nissan LEAF battery" under the "Ba
 <img width="598" height="146" alt="image" src="https://github.com/user-attachments/assets/d02bde1e-80c5-464e-9b81-31459391bd9c" />
 
 * If you are using the 2011-2012 24kWh battery, you can enable "Interlock required" in the software for extra safety. Then the software checks that high voltage connectors are plugged in before you can start.
-   * If you use "Interlock required" on a 2013+ battery, both HV plugs need to be seated (80kW and 6kW heater)
-   * For 2013+ it is recommended to **not** use "Interlock required" due to the inconvenience of having to source both HV connectors, and instead just block off the unused HV port with some insulating material
+   * If you use "Interlock required" on a 2013-2023 battery, both HV plugs need to be seated (80kW and 6kW heater).
+   * For 2013-2023 it is recommended to **not** use "Interlock required" due to the inconvenience of having to source both HV connectors, and instead just block off the unused HV port with a cover.
 
 ## Wiring diagram
 The following pictures show an example of hooking up a LEAF battery to a Fronius Gen24 inverter. The same diagram can be useful for planning other inverter combinations.
@@ -82,15 +82,7 @@ Before the contactors turn on, both Inverter and Battery needs to give OK ✅ si
 ## Periodic restart of BMS
 The Nissan LEAF BMS is not able to operate 24/7 under all conditions. Over time the SOC% will become less and less accurate, and in some conditions even the GIDS (Wh remaining) becomes confused (see [Issue 86](https://github.com/dalathegreat/Battery-Emulator/issues/86)).
 
-The 40/62kWh batteries also have issues keeping the battery balanced long term, if the BMS is never restarted. So for these the periodic reset is mandatory.
-
-<img width="448" height="39" alt="image" src="https://github.com/user-attachments/assets/96774b56-d740-4682-a54b-ab6eeb0ca6a0" />
-
-The solution is to periodically reset the 12V power going into the LEAF BMS (pin IGN and BAT). This can be automated by using the "Periodic BMS reset every 24h" option in the settings. When this is enabled, a GPIO pin (See the HAL file for your hardware to see which pin), will be toggled ON upon start, and after 24 hours it will turn off for 30s. When the power is cut to this pin, the emulator is put into Paused state, meaning no CAN messages will be sent towards the battery, and the charge/discharge limits will go to 0W. After the 30 seconds have passed, power is turned back on to the pin, and the emulator is unpaused. This 3.3V pin can be used to control the 12V power going into the BMS via an SSR or other type of relay.
-
-This makes it possible to use the Nissan LEAF battery continuously, without any worry of balancing issues or SOC% drifting overtime.
-
-See the [Periodic Reset page](https://github.com/dalathegreat/Battery-Emulator/wiki/Periodic-BMS-reset) for more info
+See the [Periodic Reset page](https://github.com/dalathegreat/Battery-Emulator/wiki/Periodic-BMS-reset) for details.
 
 > [!NOTE]  
 > The LEAF battery is fully charged at 92-96% SOC. Use the Scaled SOC function to get a nicer looking 100% curve!
@@ -162,13 +154,13 @@ If you are mounting the battery indoors, you can also 3d-print a high voltage pl
 ![rcs800_32A](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/ad4aa2ec-505e-4b99-9a8c-1b554799e899)
 ![rcs800_leaf](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/c785254e-8a63-418d-879c-1f970facad1a)
 
-The 2013+ batteries have an external high voltage heater port. The port can be plugged with silicone, and for instance a 3d-printed blockoff: https://www.thingiverse.com/thing:6534111 (Credit to machining program at William M. Davies vocational school. Lincoln, RI USA)
+The 2013-2023 batteries have an external high voltage heater port. The socket can be covered with [3D printed backoff](https://www.printables.com/model/1756569-nissan-leaf-battery-ptc-connector-cover). It can also be plugged with silicone, but beware that certain types of silicone are conductive while uncured. Allow the silicone to cure for 24 hours before engaging contactors in such a case.
 
 ![bild](https://github.com/dalathegreat/Battery-Emulator/assets/26695010/a5390194-4a78-43bf-b764-cb2c6341721a)
 
 ## Alternative Service Disconnect Switch
 
-Here is an [3D printed SDS for Nizzsan Leaf ZE1](https://www.printables.com/model/1337831-nissan-leaf-ze1-service-disconnect-plug/related)
+Here is an [3D printed SDS for 2013-2023 batteries](https://www.printables.com/model/1337831-nissan-leaf-ze1-service-disconnect-plug)
 
 ![3d_ZE1_SDS](https://github.com/user-attachments/assets/86266cc2-61f1-42b6-b13b-f9d8cf6ccf30)
 
@@ -184,11 +176,12 @@ Phoenix 3049408 DIN rail connectors
 
 
 ## Notes on 30kWh battery
-The 2016-2017 30kWh LEAF battery had a software bug in the BMS that causes the amount of kWh reported by the battery to be incorrect, and the state of health % to drop too fast. If you have one of these batteries, and it shows below 50% SOH, your battery might be affected. The Battery-Emulator can perform a degradation reset, and bring the SOH% back to 100%. This can be accessed from the Webserver, via the "More battery info" page. By pressing the "Reset degradation data", the clear is performed. Performing this clear can restore a few kWh of usable energy back.
+The 2016-2017 30kWh LEAF battery had a software bug in the BMS that caused the amount of kWh reported by the battery to be incorrect, and the state of health % to drop too fast. If you have one of these batteries, and it shows below 50% SOH, your battery might be affected. The Battery-Emulator can perform a degradation reset, and bring the SOH% back to 100%. This can be accessed from the Webserver, via the "More battery info" page. By pressing the "Reset degradation data", the clear is performed. 
+
+Performing this clear can restore a few kWh of usable energy back. 
 
 > [!IMPORTANT]
 > The degradation reset only works on 2011-2017 batteries. Performing it on 2018+ 40/62kWh packs will have a negative effect, since it will restore the battery data too low. So only perform this reset on 24/30kWh packs!
-
 
 ![image](https://github.com/user-attachments/assets/2fbe8098-7aae-4242-aa07-dd39160f8f02)
 
@@ -197,7 +190,7 @@ To perform a proper SOH% reset, [that sticks between reboots](https://github.com
 
 - Open contactors
 - Reset battery degradation via the More Battery Info page
-- Disconnect CAN cables (I also disconnected the inverter cable as they share a single CAN bus)
+- Disconnect CAN cables (also disconnect them from the inverter if they share a single CAN bus)
 - Keep BMS power ON, but remove CHG/IGN 12V signal
 - Wait 3 minutes
 - Reconnect CAN cables
@@ -205,5 +198,26 @@ To perform a proper SOH% reset, [that sticks between reboots](https://github.com
 - Close contactors
 - Reboot Battery Emulator
 
-After these steps, the SOH reset becomes persistent 
- 
+After these steps, the SOH reset to 100% becomes persistent. 
+
+### Set your own, real limits
+Note that after you reset the SOH to 100%, the BMS will let charging and discharging the cells likely beyond the limits which are safe to use on long term, in respect to the longevity of the cells. In stationary usage the battery charges and discharges much slower, and in a different pattern than when it used to do in a car, so a SOH recalibration in the BMS will take very long to happen, to match reality. 
+
+It's recommended to [set up MQTT](https://github.com/dalathegreat/Battery-Emulator/wiki/MQTT#home-assistant-discovery) and a [home automation system](https://github.com/dalathegreat/Battery-Emulator/wiki/Home-Assistant#chart-examples) which lets you track cell voltages and delta on longer term, to be able to investigate the behaviour. 
+
+To see some results, follow these steps after you do the reset (in normal ambient conditions, avoid extreme cold or hot periods):
+
+- Disable "Rescale SOC" if you have it set
+- Let the battery to charge to empty
+- Let the battery to charge to full
+- Let the battery to charge to empty again
+- Watch how the values of **Cell Voltage Delta** and **SOC (real)** change over time as approaching full and empty
+
+For example:
+<img width="2200" height="1000" alt="image" src="https://github.com/user-attachments/assets/686908a4-8d0b-498e-9d50-c35f7d56e7d2" />
+
+Try to find the widest time area of **Cell Voltage Delta** where the value changes least - that's the most comfortable and safe "zone" for the cells to operate. Look at the **SOH** graph in the same time period - that should give you the min and the max percentage of SOC rescaling yo can set in Battery Emulator, to prevent the battery to go in the high cell voltage delta zone. Take into account the absolute minimum SOC value your inverter is willing to go until (eg. Fronius allows discharging to 5% only, doesn't go below), you can reduce min SOC rescale about by that amount. 
+
+In the example above, the top graph establishes the red lines, which show the comfortable area of **Cell Voltage Delta**. The green lines show where the SOC curve intersects the red lines: this gives the min and the max SOC rescale values for a safe zone. (note the slight hysteresis between charge and discharge, take the highest value for safety).
+
+This way you'll still be in the safe zone with your battery, but you'll likely be able to use bigger capacity than the original SOH allowed in the BMS before reset. Re-evaluate this graph periodically, every 3 months (no need to do full charge-discharge so often, just keep your eye on **Cell Voltage Delta** and **SOC (real)** relation on normal usage)
